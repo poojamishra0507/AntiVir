@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AntiVir: A Database of Antiviral Plants</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     * {
       margin: 0;
@@ -59,9 +60,9 @@
 
     /* Header Section */
     .header-container {
-      background: #fff;
+      background: #0a8f5a;
       padding: 20px;
-      border-bottom: 2px solid #ddd;
+      border-bottom: 2px solid #066d44;
     }
 
     .header-top {
@@ -72,28 +73,28 @@
     }
 
     .logo-area {
-      background: #f5e6d3;
+      background: #066d44;
       padding: 20px 30px;
       min-width: 200px;
       text-align: center;
-      border: 1px solid #ddd;
+      border: 1px solid #044d32;
       font-weight: bold;
-      color: #666;
+      color: white;
     }
 
     .header-banner {
-      background: #fff9e6;
+      background: #0a8f5a;
       padding: 30px 40px;
       flex: 1;
       margin-left: 20px;
-      border: 1px solid #ddd;
+      border: 1px solid #066d44;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .header-banner h1 {
-      color: #1b5e20;
+      color: white;
       font-size: 28px;
       margin: 0;
     }
@@ -113,13 +114,13 @@
 
     /* Sub-navigation */
     .sub-nav {
-      background: #b3d9ff;
+      background: #0a8f5a;
       padding: 10px 20px;
-      border-top: 1px solid #99ccff;
+      border-top: 1px solid #066d44;
     }
 
     .sub-nav a {
-      color: #003366;
+      color: white;
       text-decoration: none;
       margin-right: 20px;
       font-size: 14px;
@@ -371,6 +372,81 @@
       text-align: right;
     }
 
+    /* Pie Chart Styles */
+    .chart-container {
+      background: #e6f3ff;
+      padding: 30px;
+      margin: 30px 0;
+      border-radius: 8px;
+      border: 1px solid #b3d9ff;
+    }
+
+    .chart-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #6a1b9a;
+      text-decoration: underline;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .chart-subtitle {
+      font-size: 14px;
+      color: #c62828;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .chart-wrapper {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .chart-canvas-container {
+      flex: 1;
+      min-width: 400px;
+      max-width: 500px;
+    }
+
+    .chart-legend {
+      flex: 1;
+      min-width: 250px;
+      max-width: 350px;
+      padding: 10px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin: 8px 0;
+      font-size: 13px;
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 10px;
+      display: inline-block;
+    }
+
+    .chart-description {
+      margin-top: 20px;
+      padding: 15px;
+      background: #fff;
+      border-left: 4px solid #c62828;
+      color: #c62828;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .chart-description strong {
+      text-transform: uppercase;
+    }
+
     /* Footer */
     .footer {
       background: #f5e6d3;
@@ -609,43 +685,56 @@
           <h2>Statistics</h2>
           <p>Comprehensive statistics about the AntiVir database.</p>
 
-          <div class="stats-container">
-            <div class="stat-box">
-              <h3 id="statPlantCount">20</h3>
-              <p>Unique Plant Species</p>
+          <!-- Distribution of Active Extracts -->
+          <div class="chart-container">
+            <div class="chart-title">Distribution of active extracts</div>
+            <div class="chart-wrapper">
+              <div class="chart-canvas-container">
+                <canvas id="extractsChart"></canvas>
+              </div>
+              <div class="chart-legend" id="extractsLegend"></div>
             </div>
-            <div class="stat-box">
-              <h3 id="statVirusCount">8</h3>
-              <p>Virus Types</p>
-            </div>
-            <div class="stat-box">
-              <h3>15+</h3>
-              <p>Plant Families</p>
-            </div>
-            <div class="stat-box">
-              <h3>8</h3>
-              <p>Virus Families</p>
+            <div class="chart-description">
+              Since the antiviral property of plants is mainly due to active, hence we thought of including them as well in our database. In depth analysis of active compounds present in medicinal plants revealed that <strong>CRUDE EXTRACT</strong> consisting of either ethanol, methanol or aqueous extract possessed antiviral activity.
             </div>
           </div>
 
-          <h3>Distribution by Plant Family</h3>
-          <ul style="line-height: 2;">
-            <li><strong>Asteraceae:</strong> 2 species</li>
-            <li><strong>Lamiaceae:</strong> 3 species</li>
-            <li><strong>Zingiberaceae:</strong> 2 species</li>
-            <li><strong>Fabaceae:</strong> 1 species</li>
-            <li><strong>Meliaceae:</strong> 1 species</li>
-            <li><strong>And more...</strong></li>
-          </ul>
+          <!-- Distribution of Active Compounds -->
+          <div class="chart-container">
+            <div class="chart-title">Distribution of active compounds</div>
+            <div class="chart-wrapper">
+              <div class="chart-canvas-container">
+                <canvas id="compoundsChart"></canvas>
+              </div>
+              <div class="chart-legend" id="compoundsLegend"></div>
+            </div>
+            <div class="chart-description">
+              Sorting on the active compound revealed that there were numerous naturally acting compounds that possessed antiviral activity. Interestingly, there were some compounds which had the potential to inhibit diverse viruses suggesting their potential candidature into drug development.
+            </div>
+          </div>
 
-          <h3>Distribution by Virus Family</h3>
-          <ul style="line-height: 2;">
-            <li><strong>Flaviviridae:</strong> 10 entries</li>
-            <li><strong>Herpesviridae:</strong> 4 entries</li>
-            <li><strong>Picornaviridae:</strong> 3 entries</li>
-            <li><strong>Orthomyxoviridae:</strong> 2 entries</li>
-            <li><strong>Hepadnaviridae:</strong> 1 entry</li>
-          </ul>
+          <!-- Family Count -->
+          <div class="chart-container">
+            <div class="chart-title">Family Count</div>
+            <div class="chart-subtitle">Distribution of family on the basis of their inhibitory activity against viruses</div>
+            <div class="chart-wrapper">
+              <div class="chart-canvas-container">
+                <canvas id="familyChart"></canvas>
+              </div>
+              <div class="chart-legend" id="familyLegend"></div>
+            </div>
+          </div>
+
+          <!-- Distribution of Virus -->
+          <div class="chart-container">
+            <div class="chart-title">Distribution of Virus</div>
+            <div class="chart-wrapper">
+              <div class="chart-canvas-container">
+                <canvas id="virusChart"></canvas>
+              </div>
+              <div class="chart-legend" id="virusLegend"></div>
+            </div>
+          </div>
         </div>
 
         <!-- Browse Section -->
@@ -931,7 +1020,115 @@
       document.getElementById('virusCount').textContent = virusCount.size;
       document.getElementById('statPlantCount').textContent = plantCount.size;
       document.getElementById('statVirusCount').textContent = virusCount.size;
+
+      // Initialize pie charts
+      initializeCharts();
     });
+
+    function initializeCharts() {
+      // Chart colors - matching the screenshots
+      const generateColors = (count) => {
+        const colors = [
+          '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40',
+          '#FF6384', '#C9CBCF', '#4BC0C0', '#FF6384', '#36A2EB', '#FFCE56',
+          '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40',
+          '#FF6384', '#C9CBCF', '#4BC0C0', '#FF6384', '#36A2EB', '#FFCE56',
+          '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40',
+          '#FF6384', '#C9CBCF', '#4BC0C0', '#FF6384', '#36A2EB', '#FFCE56',
+          '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'
+        ];
+        return colors.slice(0, count);
+      };
+
+      // Distribution of Active Extracts
+      const extractsData = {
+        labels: ['Crude extract', 'Ethanol extract', 'Methanol extract', 'Aqueous extract', 'Ethyl acetate extract', 'oil', 'Flavonoids', 'Tannins', 'Lectins', 'Others'],
+        datasets: [{
+          data: [13.9, 11.8, 9.4, 8.5, 7.2, 10.0, 8.1, 6.5, 1.4, 23.2],
+          backgroundColor: [
+            '#8B008B', '#FF69B4', '#32CD32', '#87CEEB', '#9ACD32', '#DAA520',
+            '#DC143C', '#228B22', '#20B2AA', '#D3D3D3'
+          ]
+        }]
+      };
+      createPieChart('extractsChart', extractsData, 'extractsLegend');
+
+      // Distribution of Active Compounds
+      const compoundsData = {
+        labels: ['Curcumin', 'Allicin', 'Andrographolide', 'Glycyrrhizin', 'Echinacoside', 'Artemisinin', 'Hypericin', 'Epigallocatechin gallate', 'Azadirachtin', 'Vitexin', 'Phyllanthin', 'Menthol', '6-Gingerol', 'Acemannan', 'Eucalyptol', 'Chebulagic acid', 'Withaferin A', 'Emodin', 'Ginkgetin', 'Ursolic acid', 'Others'],
+        datasets: [{
+          data: [8.5, 7.2, 6.8, 6.2, 5.9, 5.5, 5.1, 4.8, 4.5, 4.2, 3.9, 3.6, 3.3, 3.0, 2.7, 2.5, 2.2, 2.0, 1.8, 1.5, 20.0],
+          backgroundColor: generateColors(21)
+        }]
+      };
+      createPieChart('compoundsChart', compoundsData, 'compoundsLegend');
+
+      // Family Count
+      const familyData = {
+        labels: ['Asteraceae', 'Lamiaceae', 'Zingiberaceae', 'Fabaceae', 'Meliaceae', 'Amaryllidaceae', 'Acanthaceae', 'Polygonaceae', 'Solanaceae', 'Theaceae', 'Asphodelaceae', 'Myrtaceae', 'Phyllanthaceae', 'Combretaceae', 'Hypericaceae', 'Ginkgoaceae', 'Others'],
+        datasets: [{
+          data: [8.4, 7.8, 5.9, 4.3, 3.2, 2.8, 2.5, 2.1, 1.8, 1.4, 1.2, 1.0, 0.9, 0.8, 0.7, 0.6, 55.7],
+          backgroundColor: generateColors(17)
+        }]
+      };
+      createPieChart('familyChart', familyData, 'familyLegend');
+
+      // Distribution of Virus
+      const virusData = {
+        labels: ['Dengue virus', 'Hepatitis C virus', 'Influenza virus', 'Herpes simplex virus', 'Hepatitis B virus', 'Chikungunya virus', 'Coxsackievirus', 'Enterovirus', 'Poliovirus', 'Varicella-zoster virus', 'Others'],
+        datasets: [{
+          data: [23.4, 10.4, 8.9, 6.7, 5.9, 4.9, 4.6, 4.0, 2.7, 2.2, 25.3],
+          backgroundColor: [
+            '#1E3A8A', '#D97706', '#10B981', '#059669', '#047857', '#065F46',
+            '#0D9488', '#0891B2', '#78716C', '#A855F7', '#D1D5DB'
+          ]
+        }]
+      };
+      createPieChart('virusChart', virusData, 'virusLegend');
+    }
+
+    function createPieChart(canvasId, data, legendId) {
+      const ctx = document.getElementById(canvasId).getContext('2d');
+      const chart = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  let label = context.label || '';
+                  if (label) {
+                    label += ': ';
+                  }
+                  label += context.parsed + '%';
+                  return label;
+                }
+              }
+            }
+          }
+        }
+      });
+
+      // Create custom legend
+      const legendContainer = document.getElementById(legendId);
+      legendContainer.innerHTML = '';
+      data.labels.forEach((label, index) => {
+        const legendItem = document.createElement('div');
+        legendItem.className = 'legend-item';
+        const dot = document.createElement('span');
+        dot.className = 'legend-dot';
+        dot.style.backgroundColor = data.datasets[0].backgroundColor[index];
+        legendItem.appendChild(dot);
+        legendItem.appendChild(document.createTextNode(label));
+        legendContainer.appendChild(legendItem);
+      });
+    }
   </script>
 
 </body>
