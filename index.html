@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AntiVir: A Database of Antiviral Plants</title>
+  <title>AntiVir: A Database of Antiviral Compounds</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     * {
@@ -60,9 +60,11 @@
 
     /* Header Section */
     .header-container {
-      background: #0a8f5a;
+      background: #b6e2c1;
       padding: 20px;
-      border-bottom: 2px solid #066d44;
+      border-bottom: 2px solid #8fcc9f;
+      position: relative;
+      overflow: hidden;
     }
 
     .header-top {
@@ -73,54 +75,122 @@
     }
 
     .logo-area {
-      background: #066d44;
+      background: #a8d5b8;
       padding: 20px 30px;
       min-width: 200px;
       text-align: center;
-      border: 1px solid #044d32;
+      border: 1px solid #8fcc9f;
       font-weight: bold;
-      color: white;
+      color: #1b5e20;
     }
 
     .header-banner {
-      background: #0a8f5a;
+      background: #b6e2c1;
       padding: 30px 40px;
       flex: 1;
       margin-left: 20px;
-      border: 1px solid #066d44;
+      border: 1px solid #8fcc9f;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
     }
 
     .header-banner h1 {
-      color: white;
-      font-size: 28px;
+      color: #1b5e20;
+      font-size: 32px;
       margin: 0;
+      font-weight: bold;
+      position: relative;
+      z-index: 2;
+      text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+    }
+
+    .virus-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.15;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .virus-particle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #9c27b0, #7b1fa2);
+      position: relative;
+      box-shadow: 0 0 20px rgba(156, 39, 176, 0.3);
+    }
+
+    .virus-particle::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent);
+    }
+
+    .virus-particle::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      background: #9c27b0;
+      border-radius: 50%;
+      box-shadow: 
+        15px 10px 0 0 #9c27b0,
+        -15px 10px 0 0 #9c27b0,
+        0 20px 0 0 #9c27b0,
+        10px -10px 0 0 #9c27b0,
+        -10px -10px 0 0 #9c27b0;
+    }
+
+    .virus-particle.small {
+      width: 40px;
+      height: 40px;
+    }
+
+    .virus-particle.large {
+      width: 80px;
+      height: 80px;
     }
 
     .header-plants {
       display: flex;
       gap: 15px;
       align-items: center;
+      position: relative;
+      z-index: 2;
     }
 
     .header-plants img {
       max-width: 120px;
       height: auto;
       border-radius: 5px;
-      border: 2px solid #ddd;
+      border: 2px solid #8fcc9f;
     }
 
     /* Sub-navigation */
     .sub-nav {
-      background: #0a8f5a;
+      background: #a8d5b8;
       padding: 10px 20px;
-      border-top: 1px solid #066d44;
+      border-top: 1px solid #8fcc9f;
     }
 
     .sub-nav a {
-      color: white;
+      color: #1b5e20;
       text-decoration: none;
       margin-right: 20px;
       font-size: 14px;
@@ -494,7 +564,15 @@
         AntiVir Logo
       </div>
       <div class="header-banner">
-        <h1>AntiVir: A Database for Antiviral Plants</h1>
+        <div class="virus-background">
+          <div class="virus-particle small"></div>
+          <div class="virus-particle"></div>
+          <div class="virus-particle large"></div>
+          <div class="virus-particle"></div>
+          <div class="virus-particle small"></div>
+          <div class="virus-particle"></div>
+        </div>
+        <h1>AntiVir: A Database of Antiviral Compounds</h1>
         <div class="header-plants">
           <img src="assets/plant1.png" alt="Medicinal plant">
           <img src="assets/plant2.png" alt="Plant leaf">
@@ -685,6 +763,17 @@
           <h2>Statistics</h2>
           <p>Comprehensive statistics about the AntiVir database.</p>
 
+          <!-- Distribution of Virus -->
+          <div class="chart-container">
+            <div class="chart-title">Distribution of Virus</div>
+            <div class="chart-wrapper">
+              <div class="chart-canvas-container">
+                <canvas id="virusChart"></canvas>
+              </div>
+              <div class="chart-legend" id="virusLegend"></div>
+            </div>
+          </div>
+
           <!-- Distribution of Active Extracts -->
           <div class="chart-container">
             <div class="chart-title">Distribution of active extracts</div>
@@ -722,17 +811,6 @@
                 <canvas id="familyChart"></canvas>
               </div>
               <div class="chart-legend" id="familyLegend"></div>
-            </div>
-          </div>
-
-          <!-- Distribution of Virus -->
-          <div class="chart-container">
-            <div class="chart-title">Distribution of Virus</div>
-            <div class="chart-wrapper">
-              <div class="chart-canvas-container">
-                <canvas id="virusChart"></canvas>
-              </div>
-              <div class="chart-legend" id="virusLegend"></div>
             </div>
           </div>
         </div>
@@ -1040,7 +1118,20 @@
         return colors.slice(0, count);
       };
 
-      // Distribution of Active Extracts
+      // Distribution of Virus (1st)
+      const virusData = {
+        labels: ['Dengue virus', 'Hepatitis C virus', 'Influenza virus', 'Herpes simplex virus', 'Hepatitis B virus', 'Chikungunya virus', 'Coxsackievirus', 'Enterovirus', 'Poliovirus', 'Varicella-zoster virus', 'Others'],
+        datasets: [{
+          data: [23.4, 10.4, 8.9, 6.7, 5.9, 4.9, 4.6, 4.0, 2.7, 2.2, 25.3],
+          backgroundColor: [
+            '#1E3A8A', '#D97706', '#10B981', '#059669', '#047857', '#065F46',
+            '#0D9488', '#0891B2', '#78716C', '#A855F7', '#D1D5DB'
+          ]
+        }]
+      };
+      createPieChart('virusChart', virusData, 'virusLegend');
+
+      // Distribution of Active Extracts (2nd)
       const extractsData = {
         labels: ['Crude extract', 'Ethanol extract', 'Methanol extract', 'Aqueous extract', 'Ethyl acetate extract', 'oil', 'Flavonoids', 'Tannins', 'Lectins', 'Others'],
         datasets: [{
@@ -1053,7 +1144,7 @@
       };
       createPieChart('extractsChart', extractsData, 'extractsLegend');
 
-      // Distribution of Active Compounds
+      // Distribution of Active Compounds (3rd)
       const compoundsData = {
         labels: ['Curcumin', 'Allicin', 'Andrographolide', 'Glycyrrhizin', 'Echinacoside', 'Artemisinin', 'Hypericin', 'Epigallocatechin gallate', 'Azadirachtin', 'Vitexin', 'Phyllanthin', 'Menthol', '6-Gingerol', 'Acemannan', 'Eucalyptol', 'Chebulagic acid', 'Withaferin A', 'Emodin', 'Ginkgetin', 'Ursolic acid', 'Others'],
         datasets: [{
@@ -1063,7 +1154,7 @@
       };
       createPieChart('compoundsChart', compoundsData, 'compoundsLegend');
 
-      // Family Count
+      // Family Count (4th)
       const familyData = {
         labels: ['Asteraceae', 'Lamiaceae', 'Zingiberaceae', 'Fabaceae', 'Meliaceae', 'Amaryllidaceae', 'Acanthaceae', 'Polygonaceae', 'Solanaceae', 'Theaceae', 'Asphodelaceae', 'Myrtaceae', 'Phyllanthaceae', 'Combretaceae', 'Hypericaceae', 'Ginkgoaceae', 'Others'],
         datasets: [{
@@ -1072,19 +1163,6 @@
         }]
       };
       createPieChart('familyChart', familyData, 'familyLegend');
-
-      // Distribution of Virus
-      const virusData = {
-        labels: ['Dengue virus', 'Hepatitis C virus', 'Influenza virus', 'Herpes simplex virus', 'Hepatitis B virus', 'Chikungunya virus', 'Coxsackievirus', 'Enterovirus', 'Poliovirus', 'Varicella-zoster virus', 'Others'],
-        datasets: [{
-          data: [23.4, 10.4, 8.9, 6.7, 5.9, 4.9, 4.6, 4.0, 2.7, 2.2, 25.3],
-          backgroundColor: [
-            '#1E3A8A', '#D97706', '#10B981', '#059669', '#047857', '#065F46',
-            '#0D9488', '#0891B2', '#78716C', '#A855F7', '#D1D5DB'
-          ]
-        }]
-      };
-      createPieChart('virusChart', virusData, 'virusLegend');
     }
 
     function createPieChart(canvasId, data, legendId) {
