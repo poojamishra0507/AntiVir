@@ -12,231 +12,349 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f9f4;
-      color: #2c3e2c;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f5;
+      color: #333;
       line-height: 1.6;
     }
 
-    .navbar {
-      background-color: #0a8f5a;
-      padding: 15px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* Top Utility Bar */
+    .utility-bar {
+      background: #e8e8e8;
+      padding: 8px 20px;
+      text-align: right;
+      font-size: 12px;
+      border-bottom: 1px solid #ddd;
     }
 
-    .navbar a {
-      color: white;
+    .utility-bar a {
+      color: #0066cc;
       text-decoration: none;
-      margin: 0 20px;
-      font-weight: bold;
-      font-size: 16px;
-      transition: opacity 0.3s;
+      margin: 0 10px;
     }
 
-    .navbar a:hover {
-      opacity: 0.8;
+    .utility-bar a:hover {
       text-decoration: underline;
     }
 
-    .header {
-      text-align: center;
-      padding: 50px 20px 30px;
-      background: linear-gradient(to right, #b6e2c1, #e8f5e9);
-      position: relative;
+    .utility-search {
+      display: inline-block;
+      margin-left: 15px;
     }
 
-    .header h1 {
-      margin-bottom: 15px;
-      font-size: 36px;
-      color: #1b5e20;
+    .utility-search input {
+      padding: 3px 5px;
+      font-size: 12px;
+      border: 1px solid #999;
     }
 
-    .plant-images {
+    .utility-search button {
+      padding: 3px 10px;
+      font-size: 12px;
+      background: #0066cc;
+      color: white;
+      border: 1px solid #0066cc;
+      cursor: pointer;
+    }
+
+    /* Header Section */
+    .header-container {
+      background: #fff;
+      padding: 20px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .header-top {
       display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin: 30px 0;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
     }
 
-    .plant-images img {
-      max-width: 250px;
+    .logo-area {
+      background: #f5e6d3;
+      padding: 20px 30px;
+      min-width: 200px;
+      text-align: center;
+      border: 1px solid #ddd;
+      font-weight: bold;
+      color: #666;
+    }
+
+    .header-banner {
+      background: #fff9e6;
+      padding: 30px 40px;
+      flex: 1;
+      margin-left: 20px;
+      border: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-banner h1 {
+      color: #1b5e20;
+      font-size: 28px;
+      margin: 0;
+    }
+
+    .header-plants {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .header-plants img {
+      max-width: 120px;
       height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
+      border-radius: 5px;
+      border: 2px solid #ddd;
     }
 
-    .plant-images img:hover {
-      transform: scale(1.05);
+    /* Sub-navigation */
+    .sub-nav {
+      background: #b3d9ff;
+      padding: 10px 20px;
+      border-top: 1px solid #99ccff;
     }
 
-    .description {
-      max-width: 900px;
-      margin: 0 auto;
-      font-size: 17px;
-      line-height: 1.7;
-      color: #2e4d2e;
-      text-align: justify;
+    .sub-nav a {
+      color: #003366;
+      text-decoration: none;
+      margin-right: 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .sub-nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Navigation Tabs */
+    .main-nav {
+      background: #b3d9ff;
+      padding: 0;
+      border-bottom: 2px solid #0066cc;
+    }
+
+    .nav-tabs {
+      display: flex;
+      padding: 0 20px;
+    }
+
+    .nav-tab {
+      background: #e6f2ff;
+      padding: 12px 25px;
+      margin-right: 2px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #003366;
+      font-weight: bold;
+      font-size: 14px;
+      border-top: 2px solid #e6f2ff;
+      border-left: 2px solid #e6f2ff;
+      border-right: 2px solid #e6f2ff;
+      transition: all 0.3s;
+    }
+
+    .nav-tab:hover {
+      background: #cce6ff;
+    }
+
+    .nav-tab.active {
+      background: #b3d9ff;
+      border-top: 2px solid #0066cc;
+      border-left: 2px solid #0066cc;
+      border-right: 2px solid #0066cc;
+      border-bottom: 2px solid #b3d9ff;
+      margin-bottom: -2px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      background: #fff;
+      padding: 8px 20px;
+      border-bottom: 1px solid #ddd;
+      font-size: 12px;
+      color: #666;
+    }
+
+    .breadcrumb a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Content Area */
+    .main-container {
+      display: flex;
+      background: #fff;
+      min-height: 600px;
+    }
+
+    /* Left Sidebar */
+    .left-sidebar {
+      background: #b3d9ff;
+      width: 200px;
+      padding: 20px 0;
+      border-right: 2px solid #0066cc;
+    }
+
+    .sidebar-menu {
+      list-style: none;
+    }
+
+    .sidebar-menu li {
+      padding: 10px 20px;
+      border-bottom: 1px solid #99ccff;
+    }
+
+    .sidebar-menu a {
+      color: #003366;
+      text-decoration: none;
+      font-size: 14px;
+      display: block;
+    }
+
+    .sidebar-menu a:hover {
+      background: #cce6ff;
+      margin-left: 5px;
+      transition: margin 0.2s;
+    }
+
+    /* Content Columns */
+    .content-columns {
+      display: flex;
+      flex: 1;
+      padding: 20px;
+    }
+
+    .left-scan-column {
+      width: 150px;
+      padding: 0 15px;
+      color: #999;
+      font-size: 12px;
+      font-style: italic;
+    }
+
+    .main-content-column {
+      flex: 1;
+      padding: 0 20px;
+      min-width: 400px;
+    }
+
+    .right-scan-column {
+      width: 150px;
+      padding: 0 15px;
+      color: #999;
+      font-size: 12px;
+      font-style: italic;
+    }
+
+    /* Content Sections */
+    .content-section {
+      display: none;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+
+    .content-section h2 {
+      color: #1b5e20;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .content-section h3 {
+      color: #2e7d32;
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-size: 18px;
     }
 
     .stats-container {
       display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin: 50px auto;
-      max-width: 900px;
+      gap: 30px;
+      margin: 30px 0;
       flex-wrap: wrap;
     }
 
     .stat-box {
-      background: white;
-      padding: 30px;
+      background: #f0f8f0;
+      padding: 25px;
       min-width: 200px;
       text-align: center;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      border: 2px solid #b6e2c1;
     }
 
-    .stat-box h2 {
-      font-size: 40px;
+    .stat-box h3 {
+      font-size: 36px;
       color: #2e7d32;
       margin: 0;
     }
 
     .stat-box p {
-      font-size: 18px;
       margin-top: 10px;
+      color: #666;
     }
 
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 30px 20px;
-    }
-
-    .search-section {
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
-    }
-
-    .search-section h2 {
-      color: #1b5e20;
-      margin-bottom: 15px;
-    }
-
-    .search-section h3 {
-      color: #2e7d32;
-      margin-top: 20px;
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
-
-    .plant-list {
+    .plant-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 15px;
-      margin-top: 20px;
+      margin: 20px 0;
     }
 
-    .plant-item {
+    .plant-card {
       background: #f9f9f9;
       padding: 15px;
-      border-radius: 8px;
+      border-radius: 5px;
       border-left: 4px solid #0a8f5a;
-      transition: background 0.3s;
     }
 
-    .plant-item:hover {
-      background: #f0f8f0;
-    }
-
-    .plant-item strong {
+    .plant-card strong {
       color: #1b5e20;
       display: block;
       margin-bottom: 5px;
     }
 
-    .family-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .family-item {
-      background: #f9f9f9;
-      padding: 15px;
-      border-radius: 8px;
-      border-left: 4px solid #0a8f5a;
-    }
-
-    .family-item h4 {
-      color: #1b5e20;
-      margin-bottom: 10px;
-    }
-
-    .family-item ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    .family-item li {
-      padding: 5px 0;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    .family-item li:last-child {
-      border-bottom: none;
-    }
-
-    #searchInput {
+    .search-box {
       width: 100%;
       padding: 12px;
       font-size: 16px;
       border: 2px solid #b6e2c1;
       border-radius: 5px;
-      transition: border-color 0.3s;
-    }
-
-    #searchInput:focus {
-      outline: none;
-      border-color: #0a8f5a;
+      margin-bottom: 20px;
     }
 
     .table-wrapper {
       overflow-x: auto;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin: 20px 0;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 1200px;
+      min-width: 1000px;
     }
 
     th {
       background-color: #0a8f5a;
       color: white;
-      padding: 15px 10px;
+      padding: 12px 8px;
       text-align: left;
       font-weight: bold;
-      position: sticky;
-      top: 0;
-      z-index: 10;
     }
 
     td {
-      padding: 12px 10px;
+      padding: 10px 8px;
       border-bottom: 1px solid #e0e0e0;
     }
 
@@ -244,826 +362,558 @@
       background-color: #f0f8f0;
     }
 
-    tr:nth-child(even) {
-      background-color: #fafafa;
+    .last-revised {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+      font-size: 12px;
+      color: #999;
+      text-align: right;
     }
 
-    tr:nth-child(even):hover {
-      background-color: #f0f8f0;
-    }
-
-    .no-results {
-      text-align: center;
-      padding: 40px;
-      color: #666;
-      display: none;
-    }
-
-    footer {
-      text-align: center;
+    /* Footer */
+    .footer {
+      background: #f5e6d3;
       padding: 20px;
-      background-color: #0a8f5a;
-      color: white;
-      margin-top: 50px;
+      border-top: 2px solid #ddd;
+      font-size: 12px;
+      color: #666;
     }
 
-    @media (max-width: 768px) {
-      .navbar a {
-        display: block;
-        margin: 10px 0;
-      }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-      .header h1 {
-        font-size: 28px;
-      }
+    .footer p {
+      margin: 5px 0;
+    }
 
-      .stats-container {
-        flex-direction: column;
-        align-items: center;
-      }
+    .footer a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <div class="navbar">
-    <a href="#home">Home</a>
-    <a href="#basic-search">Basic Search</a>
-    <a href="#database">Database</a>
-    <a href="#virus-family">Virus Family</a>
-    <a href="#plant-family">Plant Family</a>
+  <!-- Top Utility Bar -->
+  <div class="utility-bar">
+    <a href="#">Calendar</a>
+    <a href="#">A-Z Index</a>
+    <div class="utility-search">
+      <input type="text" placeholder="Search this site">
+      <button>Go</button>
+    </div>
   </div>
 
   <!-- Header -->
-  <div class="header" id="home">
-    <h1>AntiVir: A Database for Antiviral Plants</h1>
-    <div class="plant-images">
-      <img src="assets/plant1.png" alt="Medicinal plant with yellow flowers (Artemisia species)">
-      <img src="assets/plant2.png" alt="Tomato plant leaf showing plant-virus interaction">
-    </div>
-    <div class="description">
-      AntiVir is a manually curated database of antiviral plants that compiles
-      comprehensive information on plant species, their taxonomic families,
-      associated phytochemicals, and virus-specific antiviral activity.
-      The database integrates experimentally reported antiviral evidence
-      to provide structured, searchable, and statistically summarized
-      data for plant-based antiviral research.
-    </div>
-  </div>
-
-  <!-- Statistics -->
-  <div class="stats-container">
-    <div class="stat-box">
-      <h2 id="plantCount">100</h2>
-      <p>Antiviral Plant Species</p>
-    </div>
-    <div class="stat-box">
-      <h2 id="virusCount">20</h2>
-      <p>Viruses Documented</p>
-    </div>
-  </div>
-
-  <!-- Basic Search Section -->
-  <div class="container" id="basic-search">
-    <div class="search-section">
-      <h2>Basic Search</h2>
-      <p>Browse antiviral plants by name and family. Click on any plant to see detailed information in the database.</p>
-      
-      <h3>Plant Names and Families</h3>
-      <div class="plant-list" id="plantList">
-        <div class="plant-item">
-          <strong>Allium sativum</strong>
-          <span style="color: #666;">Family: Amaryllidaceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Curcuma longa</strong>
-          <span style="color: #666;">Family: Zingiberaceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Azadirachta indica</strong>
-          <span style="color: #666;">Family: Meliaceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Echinacea purpurea</strong>
-          <span style="color: #666;">Family: Asteraceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Glycyrrhiza glabra</strong>
-          <span style="color: #666;">Family: Fabaceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Ocimum sanctum</strong>
-          <span style="color: #666;">Family: Lamiaceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Andrographis paniculata</strong>
-          <span style="color: #666;">Family: Acanthaceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Hypericum perforatum</strong>
-          <span style="color: #666;">Family: Hypericaceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Camellia sinensis</strong>
-          <span style="color: #666;">Family: Theaceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Vitex negundo</strong>
-          <span style="color: #666;">Family: Lamiaceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Phyllanthus niruri</strong>
-          <span style="color: #666;">Family: Phyllanthaceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Mentha piperita</strong>
-          <span style="color: #666;">Family: Lamiaceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Zingiber officinale</strong>
-          <span style="color: #666;">Family: Zingiberaceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Aloe vera</strong>
-          <span style="color: #666;">Family: Asphodelaceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Eucalyptus globulus</strong>
-          <span style="color: #666;">Family: Myrtaceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Artemisia annua</strong>
-          <span style="color: #666;">Family: Asteraceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Terminalia chebula</strong>
-          <span style="color: #666;">Family: Combretaceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Withania somnifera</strong>
-          <span style="color: #666;">Family: Solanaceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Rheum palmatum</strong>
-          <span style="color: #666;">Family: Polygonaceae</span>
-        </div>
-        <div class="plant-item">
-          <strong>Ginkgo biloba</strong>
-          <span style="color: #666;">Family: Ginkgoaceae</span>
+  <div class="header-container">
+    <div class="header-top">
+      <div class="logo-area">
+        AntiVir Logo
+      </div>
+      <div class="header-banner">
+        <h1>AntiVir: A Database for Antiviral Plants</h1>
+        <div class="header-plants">
+          <img src="assets/plant1.png" alt="Medicinal plant">
+          <img src="assets/plant2.png" alt="Plant leaf">
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Database Section -->
-  <div class="container" id="database">
-    <div class="search-section">
-      <h2>Antiviral Plant Database</h2>
-      <p>Search across all fields: plant name, family, virus, compound, author, etc.</p>
-      <input type="text" id="searchInput" placeholder="Search plant, virus, family, compound, author..." onkeyup="searchTable()">
-    </div>
-
-    <div class="table-wrapper">
-      <table id="dataTable">
-        <thead>
-          <tr>
-            <th>Plant Group</th>
-            <th>Plant Name</th>
-            <th>Plant Family</th>
-            <th>Virus Genome</th>
-            <th>Virus Class</th>
-            <th>Virus Family</th>
-            <th>Virus</th>
-            <th>Strain</th>
-            <th>Extract</th>
-            <th>Active Class</th>
-            <th>Active Compound</th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Journal</th>
-            <th>PMID</th>
-          </tr>
-        </thead>
-        <tbody id="tableBody">
-          <tr>
-            <td>Angiosperms</td>
-            <td>Allium sativum</td>
-            <td>Amaryllidaceae</td>
-            <td>RNA</td>
-            <td>IV</td>
-            <td>Flaviviridae</td>
-            <td>Dengue virus</td>
-            <td>DENV-2</td>
-            <td>Methanol extract</td>
-            <td>Organosulfur compounds</td>
-            <td>Allicin</td>
-            <td>Antiviral activity of garlic extract against dengue virus</td>
-            <td>Smith et al.</td>
-            <td>Journal of Virology</td>
-            <td>12345678</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Curcuma longa</td>
-            <td>Zingiberaceae</td>
-            <td>RNA</td>
-            <td>IV</td>
-            <td>Flaviviridae</td>
-            <td>Hepatitis C virus</td>
-            <td>HCV-1a</td>
-            <td>Ethanol extract</td>
-            <td>Polyphenols</td>
-            <td>Curcumin</td>
-            <td>Curcumin inhibits hepatitis C virus replication</td>
-            <td>Johnson et al.</td>
-            <td>Antiviral Research</td>
-            <td>23456789</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Azadirachta indica</td>
-            <td>Meliaceae</td>
-            <td>DNA</td>
-            <td>I</td>
-            <td>Herpesviridae</td>
-            <td>Herpes simplex virus</td>
-            <td>HSV-1</td>
-            <td>Aqueous extract</td>
-            <td>Limonoids</td>
-            <td>Azadirachtin</td>
-            <td>Neem extract shows anti-herpes activity</td>
-            <td>Williams et al.</td>
-            <td>Phytomedicine</td>
-            <td>34567890</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Echinacea purpurea</td>
-            <td>Asteraceae</td>
-            <td>RNA</td>
-            <td>V</td>
-            <td>Orthomyxoviridae</td>
-            <td>Influenza A virus</td>
-            <td>H1N1</td>
-            <td>Methanol extract</td>
-            <td>Alkamides</td>
-            <td>Echinacoside</td>
-            <td>Echinacea compounds inhibit influenza virus</td>
-            <td>Brown et al.</td>
-            <td>Virology Journal</td>
-            <td>45678901</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Glycyrrhiza glabra</td>
-            <td>Fabaceae</td>
-            <td>RNA</td>
-            <td>IV</td>
-            <td>Flaviviridae</td>
-            <td>Dengue virus</td>
-            <td>DENV-3</td>
-            <td>Water extract</td>
-            <td>Triterpenoids</td>
-            <td>Glycyrrhizin</td>
-            <td>Licorice root extract against dengue</td>
-            <td>Davis et al.</td>
-            <td>Antiviral Research</td>
-            <td>56789012</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Ocimum sanctum</td>
-            <td>Lamiaceae</td>
-            <td>RNA</td>
-            <td>IV</td>
-            <td>Picornaviridae</td>
-            <td>Coxsackievirus</td>
-            <td>CVB3</td>
-            <td>Ethanol extract</td>
-            <td>Phenolic compounds</td>
-            <td>Ursolic acid</td>
-            <td>Tulsi extract inhibits coxsackievirus</td>
-            <td>Miller et al.</td>
-            <td>Journal of Natural Products</td>
-            <td>67890123</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Andrographis paniculata</td>
-            <td>Acanthaceae</td>
-            <td>RNA</td>
-            <td>IV</td>
-            <td>Flaviviridae</td>
-            <td>Chikungunya virus</td>
-            <td>CHIKV</td>
-            <td>Methanol extract</td>
-            <td>Diterpenoids</td>
-            <td>Andrographolide</td>
-            <td>Andrographis shows anti-chikungunya activity</td>
-            <td>Wilson et al.</td>
-            <td>PLoS ONE</td>
-            <td>78901234</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Hypericum perforatum</td>
-            <td>Hypericaceae</td>
-            <td>RNA</td>
-            <td>IV</td>
-            <td>Flaviviridae</td>
-            <td>Hepatitis C virus</td>
-            <td>HCV-1b</td>
-            <td>Methanol extract</td>
-            <td>Naphthodianthrones</td>
-            <td>Hypericin</td>
-            <td>St. John's wort against HCV</td>
-            <td>Moore et al.</td>
-            <td>Antiviral Research</td>
-            <td>89012345</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Camellia sinensis</td>
-            <td>Theaceae</td>
-            <td>RNA</td>
-            <td>IV</td>
-            <td>Flaviviridae</td>
-            <td>Dengue virus</td>
-            <td>DENV-4</td>
-            <td>Water extract</td>
-            <td>Polyphenols</td>
-            <td>Epigallocatechin gallate</td>
-            <td>Green tea catechins inhibit dengue</td>
-            <td>Taylor et al.</td>
-            <td>Virology</td>
-            <td>90123456</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Vitex negundo</td>
-            <td>Lamiaceae</td>
-            <td>DNA</td>
-            <td>I</td>
-            <td>Herpesviridae</td>
-            <td>Herpes simplex virus</td>
-            <td>HSV-2</td>
-            <td>Ethanol extract</td>
-            <td>Flavonoids</td>
-            <td>Vitexin</td>
-            <td>Vitex negundo anti-herpes activity</td>
-            <td>Anderson et al.</td>
-            <td>Phytotherapy Research</td>
-            <td>01234567</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Phyllanthus niruri</td>
-            <td>Phyllanthaceae</td>
-            <td>DNA</td>
-            <td>VII</td>
-            <td>Hepadnaviridae</td>
-            <td>Hepatitis B virus</td>
-            <td>HBV</td>
-            <td>Aqueous extract</td>
-            <td>Lignans</td>
-            <td>Phyllanthin</td>
-            <td>Phyllanthus against hepatitis B</td>
-            <td>Thomas et al.</td>
-            <td>Journal of Ethnopharmacology</td>
-            <td>11223344</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Mentha piperita</td>
-            <td>Lamiaceae</td>
-            <td>RNA</td>
-            <td>IV</td>
-            <td>Picornaviridae</td>
-            <td>Enterovirus</td>
-            <td>EV71</td>
-            <td>Essential oil</td>
-            <td>Monoterpenes</td>
-            <td>Menthol</td>
-            <td>Peppermint oil antiviral activity</td>
-            <td>Jackson et al.</td>
-            <td>Antiviral Research</td>
-            <td>22334455</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Zingiber officinale</td>
-            <td>Zingiberaceae</td>
-            <td>RNA</td>
-            <td>V</td>
-            <td>Orthomyxoviridae</td>
-            <td>Influenza A virus</td>
-            <td>H3N2</td>
-            <td>Ethanol extract</td>
-            <td>Gingerols</td>
-            <td>6-Gingerol</td>
-            <td>Ginger extract against influenza</td>
-            <td>White et al.</td>
-            <td>Virology Journal</td>
-            <td>33445566</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Aloe vera</td>
-            <td>Asphodelaceae</td>
-            <td>DNA</td>
-            <td>I</td>
-            <td>Herpesviridae</td>
-            <td>Herpes simplex virus</td>
-            <td>HSV-1</td>
-            <td>Gel extract</td>
-            <td>Polysaccharides</td>
-            <td>Acemannan</td>
-            <td>Aloe vera anti-herpes properties</td>
-            <td>Harris et al.</td>
-            <td>Phytomedicine</td>
-            <td>44556677</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Eucalyptus globulus</td>
-            <td>Myrtaceae</td>
-            <td>RNA</td>
-            <td>IV</td>
-            <td>Flaviviridae</td>
-            <td>Dengue virus</td>
-            <td>DENV-1</td>
-            <td>Essential oil</td>
-            <td>Monoterpenes</td>
-            <td>Eucalyptol</td>
-            <td>Eucalyptus oil against dengue</td>
-            <td>Martin et al.</td>
-            <td>Antiviral Research</td>
-            <td>55667788</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Artemisia annua</td>
-            <td>Asteraceae</td>
-            <td>RNA</td>
-            <td>IV</td>
-            <td>Flaviviridae</td>
-            <td>Dengue virus</td>
-            <td>DENV-2</td>
-            <td>Methanol extract</td>
-            <td>Sesquiterpenes</td>
-            <td>Artemisinin</td>
-            <td>Artemisia annua anti-dengue activity</td>
-            <td>Garcia et al.</td>
-            <td>PLoS Neglected Tropical Diseases</td>
-            <td>66778899</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Terminalia chebula</td>
-            <td>Combretaceae</td>
-            <td>RNA</td>
-            <td>IV</td>
-            <td>Picornaviridae</td>
-            <td>Poliovirus</td>
-            <td>PV1</td>
-            <td>Water extract</td>
-            <td>Tannins</td>
-            <td>Chebulagic acid</td>
-            <td>Terminalia chebula against poliovirus</td>
-            <td>Lee et al.</td>
-            <td>Journal of Virology</td>
-            <td>77889900</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Withania somnifera</td>
-            <td>Solanaceae</td>
-            <td>RNA</td>
-            <td>IV</td>
-            <td>Flaviviridae</td>
-            <td>Chikungunya virus</td>
-            <td>CHIKV</td>
-            <td>Methanol extract</td>
-            <td>Withanolides</td>
-            <td>Withaferin A</td>
-            <td>Ashwagandha anti-chikungunya effects</td>
-            <td>Kim et al.</td>
-            <td>Antiviral Research</td>
-            <td>88990011</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Rheum palmatum</td>
-            <td>Polygonaceae</td>
-            <td>DNA</td>
-            <td>I</td>
-            <td>Herpesviridae</td>
-            <td>Varicella-zoster virus</td>
-            <td>VZV</td>
-            <td>Ethanol extract</td>
-            <td>Anthraquinones</td>
-            <td>Emodin</td>
-            <td>Rhubarb extract against VZV</td>
-            <td>Park et al.</td>
-            <td>Phytomedicine</td>
-            <td>99001122</td>
-          </tr>
-          <tr>
-            <td>Angiosperms</td>
-            <td>Ginkgo biloba</td>
-            <td>Ginkgoaceae</td>
-            <td>RNA</td>
-            <td>IV</td>
-            <td>Flaviviridae</td>
-            <td>Hepatitis C virus</td>
-            <td>HCV-2a</td>
-            <td>Methanol extract</td>
-            <td>Flavonoids</td>
-            <td>Ginkgetin</td>
-            <td>Ginkgo biloba against HCV</td>
-            <td>Chen et al.</td>
-            <td>Antiviral Research</td>
-            <td>10111213</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="no-results" id="noResults">No results found. Try a different search term.</div>
+    <div class="sub-nav">
+      <a href="#">About</a>
+      <a href="#">Research</a>
+      <a href="#">Publications</a>
+      <a href="#">Contact us</a>
     </div>
   </div>
 
-  <!-- Virus Family Section -->
-  <div class="container" id="virus-family">
-    <div class="search-section">
-      <h2>Virus Family</h2>
-      <p>Explore viruses organized by their taxonomic families. Each family contains multiple virus species that can be targeted by antiviral plants.</p>
-      
-      <div class="family-grid">
-        <div class="family-item">
-          <h4>Flaviviridae</h4>
-          <ul>
-            <li>Dengue virus (DENV)</li>
-            <li>Hepatitis C virus (HCV)</li>
-            <li>Chikungunya virus (CHIKV)</li>
-            <li>Yellow fever virus</li>
-            <li>West Nile virus</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Herpesviridae</h4>
-          <ul>
-            <li>Herpes simplex virus (HSV-1, HSV-2)</li>
-            <li>Varicella-zoster virus (VZV)</li>
-            <li>Epstein-Barr virus</li>
-            <li>Cytomegalovirus</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Picornaviridae</h4>
-          <ul>
-            <li>Coxsackievirus</li>
-            <li>Poliovirus</li>
-            <li>Enterovirus</li>
-            <li>Rhinovirus</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Orthomyxoviridae</h4>
-          <ul>
-            <li>Influenza A virus (H1N1, H3N2)</li>
-            <li>Influenza B virus</li>
-            <li>Influenza C virus</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Hepadnaviridae</h4>
-          <ul>
-            <li>Hepatitis B virus (HBV)</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Retroviridae</h4>
-          <ul>
-            <li>Human immunodeficiency virus (HIV)</li>
-            <li>Human T-lymphotropic virus</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Coronaviridae</h4>
-          <ul>
-            <li>SARS-CoV</li>
-            <li>MERS-CoV</li>
-            <li>SARS-CoV-2</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Paramyxoviridae</h4>
-          <ul>
-            <li>Measles virus</li>
-            <li>Mumps virus</li>
-            <li>Respiratory syncytial virus</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div style="margin-top: 30px; padding: 20px; background: #f0f8f0; border-radius: 8px;">
-        <h3>Virus Classification</h3>
-        <ul style="list-style-type: none; padding-left: 0;">
-          <li style="margin: 10px 0;"><strong>Virus genome:</strong> DNA / RNA</li>
-          <li style="margin: 10px 0;"><strong>Virus classes:</strong> Class I (dsDNA) – VII (dsDNA-RT)</li>
-          <li style="margin: 10px 0;"><strong>Common families:</strong> Herpesviridae, Flaviviridae, Picornaviridae, Hepadnaviridae, Orthomyxoviridae, Retroviridae, Coronaviridae, Paramyxoviridae</li>
-        </ul>
-      </div>
+  <!-- Main Navigation Tabs -->
+  <div class="main-nav">
+    <div class="nav-tabs">
+      <a href="#" class="nav-tab active" onclick="showSection('home'); return false;">Home</a>
+      <a href="#" class="nav-tab" onclick="showSection('basic-search'); return false;">Basic Search</a>
+      <a href="#" class="nav-tab" onclick="showSection('statistics'); return false;">Statistics</a>
+      <a href="#" class="nav-tab" onclick="showSection('browse'); return false;">Browse</a>
+    </div>
+    <div class="breadcrumb">
+      <a href="#">Home page</a> | <a href="#">Section menu</a> | <a href="#">Submenu</a>
     </div>
   </div>
 
-  <!-- Plant Family Section -->
-  <div class="container" id="plant-family">
-    <div class="search-section">
-      <h2>Plant Family</h2>
-      <p>The database includes antiviral plants from diverse botanical families. Each family contains multiple species with documented antiviral properties.</p>
-      
-      <div class="family-grid">
-        <div class="family-item">
-          <h4>Asteraceae</h4>
-          <ul>
-            <li>Echinacea purpurea</li>
-            <li>Artemisia annua</li>
-            <li>Calendula officinalis</li>
-            <li>Chrysanthemum indicum</li>
+  <!-- Main Content Area -->
+  <div class="main-container">
+    <!-- Left Sidebar -->
+    <div class="left-sidebar">
+      <ul class="sidebar-menu">
+        <li><a href="#" onclick="showSection('home'); return false;">Home page of site</a></li>
+        <li><a href="#" onclick="showSection('basic-search'); return false;">Basic Search</a></li>
+        <li><a href="#" onclick="showSection('statistics'); return false;">Statistics</a></li>
+        <li><a href="#" onclick="showSection('browse'); return false;">Browse Database</a></li>
+        <li><a href="#">Virus Families</a></li>
+        <li><a href="#">Plant Families</a></li>
+        <li><a href="#">Research Methods</a></li>
+        <li><a href="#">Publications</a></li>
+      </ul>
+    </div>
+
+    <!-- Content Columns -->
+    <div class="content-columns">
+      <div class="left-scan-column">
+        Left scan column (optional)
+      </div>
+
+      <div class="main-content-column">
+        <!-- Home Section -->
+        <div id="home" class="content-section active">
+          <h2>Welcome to AntiVir Database</h2>
+          <p>AntiVir is a manually curated database of antiviral plants that compiles comprehensive information on plant species, their taxonomic families, associated phytochemicals, and virus-specific antiviral activity.</p>
+          
+          <p>The database integrates experimentally reported antiviral evidence to provide structured, searchable, and statistically summarized data for plant-based antiviral research.</p>
+
+          <div class="stats-container">
+            <div class="stat-box">
+              <h3 id="plantCount">20</h3>
+              <p>Antiviral Plant Species</p>
+            </div>
+            <div class="stat-box">
+              <h3 id="virusCount">8</h3>
+              <p>Viruses Documented</p>
+            </div>
+            <div class="stat-box">
+              <h3>15+</h3>
+              <p>Plant Families</p>
+            </div>
+          </div>
+
+          <h3>Featured Plants</h3>
+          <div class="plant-grid">
+            <div class="plant-card">
+              <strong>Allium sativum</strong>
+              <span style="color: #666;">Family: Amaryllidaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Curcuma longa</strong>
+              <span style="color: #666;">Family: Zingiberaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Azadirachta indica</strong>
+              <span style="color: #666;">Family: Meliaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Echinacea purpurea</strong>
+              <span style="color: #666;">Family: Asteraceae</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Basic Search Section -->
+        <div id="basic-search" class="content-section">
+          <h2>Basic Search</h2>
+          <p>Search for antiviral plants by name, family, virus, or compound.</p>
+          
+          <input type="text" class="search-box" id="searchInput" placeholder="Search plant, virus, family, compound..." onkeyup="searchTable()">
+          
+          <h3>Plant Names and Families</h3>
+          <div class="plant-grid" id="plantList">
+            <div class="plant-card">
+              <strong>Allium sativum</strong>
+              <span style="color: #666;">Family: Amaryllidaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Curcuma longa</strong>
+              <span style="color: #666;">Family: Zingiberaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Azadirachta indica</strong>
+              <span style="color: #666;">Family: Meliaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Echinacea purpurea</strong>
+              <span style="color: #666;">Family: Asteraceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Glycyrrhiza glabra</strong>
+              <span style="color: #666;">Family: Fabaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Ocimum sanctum</strong>
+              <span style="color: #666;">Family: Lamiaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Andrographis paniculata</strong>
+              <span style="color: #666;">Family: Acanthaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Hypericum perforatum</strong>
+              <span style="color: #666;">Family: Hypericaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Camellia sinensis</strong>
+              <span style="color: #666;">Family: Theaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Vitex negundo</strong>
+              <span style="color: #666;">Family: Lamiaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Phyllanthus niruri</strong>
+              <span style="color: #666;">Family: Phyllanthaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Mentha piperita</strong>
+              <span style="color: #666;">Family: Lamiaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Zingiber officinale</strong>
+              <span style="color: #666;">Family: Zingiberaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Aloe vera</strong>
+              <span style="color: #666;">Family: Asphodelaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Eucalyptus globulus</strong>
+              <span style="color: #666;">Family: Myrtaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Artemisia annua</strong>
+              <span style="color: #666;">Family: Asteraceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Terminalia chebula</strong>
+              <span style="color: #666;">Family: Combretaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Withania somnifera</strong>
+              <span style="color: #666;">Family: Solanaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Rheum palmatum</strong>
+              <span style="color: #666;">Family: Polygonaceae</span>
+            </div>
+            <div class="plant-card">
+              <strong>Ginkgo biloba</strong>
+              <span style="color: #666;">Family: Ginkgoaceae</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Statistics Section -->
+        <div id="statistics" class="content-section">
+          <h2>Statistics</h2>
+          <p>Comprehensive statistics about the AntiVir database.</p>
+
+          <div class="stats-container">
+            <div class="stat-box">
+              <h3 id="statPlantCount">20</h3>
+              <p>Unique Plant Species</p>
+            </div>
+            <div class="stat-box">
+              <h3 id="statVirusCount">8</h3>
+              <p>Virus Types</p>
+            </div>
+            <div class="stat-box">
+              <h3>15+</h3>
+              <p>Plant Families</p>
+            </div>
+            <div class="stat-box">
+              <h3>8</h3>
+              <p>Virus Families</p>
+            </div>
+          </div>
+
+          <h3>Distribution by Plant Family</h3>
+          <ul style="line-height: 2;">
+            <li><strong>Asteraceae:</strong> 2 species</li>
+            <li><strong>Lamiaceae:</strong> 3 species</li>
+            <li><strong>Zingiberaceae:</strong> 2 species</li>
+            <li><strong>Fabaceae:</strong> 1 species</li>
+            <li><strong>Meliaceae:</strong> 1 species</li>
+            <li><strong>And more...</strong></li>
+          </ul>
+
+          <h3>Distribution by Virus Family</h3>
+          <ul style="line-height: 2;">
+            <li><strong>Flaviviridae:</strong> 10 entries</li>
+            <li><strong>Herpesviridae:</strong> 4 entries</li>
+            <li><strong>Picornaviridae:</strong> 3 entries</li>
+            <li><strong>Orthomyxoviridae:</strong> 2 entries</li>
+            <li><strong>Hepadnaviridae:</strong> 1 entry</li>
           </ul>
         </div>
-        
-        <div class="family-item">
-          <h4>Lamiaceae</h4>
-          <ul>
-            <li>Ocimum sanctum</li>
-            <li>Vitex negundo</li>
-            <li>Mentha piperita</li>
-            <li>Rosmarinus officinalis</li>
-            <li>Salvia officinalis</li>
-          </ul>
+
+        <!-- Browse Section -->
+        <div id="browse" class="content-section">
+          <h2>Browse Database</h2>
+          <p>Browse the complete antiviral plant database with all entries.</p>
+
+          <input type="text" class="search-box" id="browseSearchInput" placeholder="Search database..." onkeyup="searchTable()">
+
+          <div class="table-wrapper">
+            <table id="dataTable">
+              <thead>
+                <tr>
+                  <th>Plant Name</th>
+                  <th>Plant Family</th>
+                  <th>Virus</th>
+                  <th>Virus Family</th>
+                  <th>Extract</th>
+                  <th>Active Compound</th>
+                  <th>Author</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <tr>
+                  <td>Allium sativum</td>
+                  <td>Amaryllidaceae</td>
+                  <td>Dengue virus</td>
+                  <td>Flaviviridae</td>
+                  <td>Methanol extract</td>
+                  <td>Allicin</td>
+                  <td>Smith et al.</td>
+                </tr>
+                <tr>
+                  <td>Curcuma longa</td>
+                  <td>Zingiberaceae</td>
+                  <td>Hepatitis C virus</td>
+                  <td>Flaviviridae</td>
+                  <td>Ethanol extract</td>
+                  <td>Curcumin</td>
+                  <td>Johnson et al.</td>
+                </tr>
+                <tr>
+                  <td>Azadirachta indica</td>
+                  <td>Meliaceae</td>
+                  <td>Herpes simplex virus</td>
+                  <td>Herpesviridae</td>
+                  <td>Aqueous extract</td>
+                  <td>Azadirachtin</td>
+                  <td>Williams et al.</td>
+                </tr>
+                <tr>
+                  <td>Echinacea purpurea</td>
+                  <td>Asteraceae</td>
+                  <td>Influenza A virus</td>
+                  <td>Orthomyxoviridae</td>
+                  <td>Methanol extract</td>
+                  <td>Echinacoside</td>
+                  <td>Brown et al.</td>
+                </tr>
+                <tr>
+                  <td>Glycyrrhiza glabra</td>
+                  <td>Fabaceae</td>
+                  <td>Dengue virus</td>
+                  <td>Flaviviridae</td>
+                  <td>Water extract</td>
+                  <td>Glycyrrhizin</td>
+                  <td>Davis et al.</td>
+                </tr>
+                <tr>
+                  <td>Ocimum sanctum</td>
+                  <td>Lamiaceae</td>
+                  <td>Coxsackievirus</td>
+                  <td>Picornaviridae</td>
+                  <td>Ethanol extract</td>
+                  <td>Ursolic acid</td>
+                  <td>Miller et al.</td>
+                </tr>
+                <tr>
+                  <td>Andrographis paniculata</td>
+                  <td>Acanthaceae</td>
+                  <td>Chikungunya virus</td>
+                  <td>Flaviviridae</td>
+                  <td>Methanol extract</td>
+                  <td>Andrographolide</td>
+                  <td>Wilson et al.</td>
+                </tr>
+                <tr>
+                  <td>Hypericum perforatum</td>
+                  <td>Hypericaceae</td>
+                  <td>Hepatitis C virus</td>
+                  <td>Flaviviridae</td>
+                  <td>Methanol extract</td>
+                  <td>Hypericin</td>
+                  <td>Moore et al.</td>
+                </tr>
+                <tr>
+                  <td>Camellia sinensis</td>
+                  <td>Theaceae</td>
+                  <td>Dengue virus</td>
+                  <td>Flaviviridae</td>
+                  <td>Water extract</td>
+                  <td>Epigallocatechin gallate</td>
+                  <td>Taylor et al.</td>
+                </tr>
+                <tr>
+                  <td>Vitex negundo</td>
+                  <td>Lamiaceae</td>
+                  <td>Herpes simplex virus</td>
+                  <td>Herpesviridae</td>
+                  <td>Ethanol extract</td>
+                  <td>Vitexin</td>
+                  <td>Anderson et al.</td>
+                </tr>
+                <tr>
+                  <td>Phyllanthus niruri</td>
+                  <td>Phyllanthaceae</td>
+                  <td>Hepatitis B virus</td>
+                  <td>Hepadnaviridae</td>
+                  <td>Aqueous extract</td>
+                  <td>Phyllanthin</td>
+                  <td>Thomas et al.</td>
+                </tr>
+                <tr>
+                  <td>Mentha piperita</td>
+                  <td>Lamiaceae</td>
+                  <td>Enterovirus</td>
+                  <td>Picornaviridae</td>
+                  <td>Essential oil</td>
+                  <td>Menthol</td>
+                  <td>Jackson et al.</td>
+                </tr>
+                <tr>
+                  <td>Zingiber officinale</td>
+                  <td>Zingiberaceae</td>
+                  <td>Influenza A virus</td>
+                  <td>Orthomyxoviridae</td>
+                  <td>Ethanol extract</td>
+                  <td>6-Gingerol</td>
+                  <td>White et al.</td>
+                </tr>
+                <tr>
+                  <td>Aloe vera</td>
+                  <td>Asphodelaceae</td>
+                  <td>Herpes simplex virus</td>
+                  <td>Herpesviridae</td>
+                  <td>Gel extract</td>
+                  <td>Acemannan</td>
+                  <td>Harris et al.</td>
+                </tr>
+                <tr>
+                  <td>Eucalyptus globulus</td>
+                  <td>Myrtaceae</td>
+                  <td>Dengue virus</td>
+                  <td>Flaviviridae</td>
+                  <td>Essential oil</td>
+                  <td>Eucalyptol</td>
+                  <td>Martin et al.</td>
+                </tr>
+                <tr>
+                  <td>Artemisia annua</td>
+                  <td>Asteraceae</td>
+                  <td>Dengue virus</td>
+                  <td>Flaviviridae</td>
+                  <td>Methanol extract</td>
+                  <td>Artemisinin</td>
+                  <td>Garcia et al.</td>
+                </tr>
+                <tr>
+                  <td>Terminalia chebula</td>
+                  <td>Combretaceae</td>
+                  <td>Poliovirus</td>
+                  <td>Picornaviridae</td>
+                  <td>Water extract</td>
+                  <td>Chebulagic acid</td>
+                  <td>Lee et al.</td>
+                </tr>
+                <tr>
+                  <td>Withania somnifera</td>
+                  <td>Solanaceae</td>
+                  <td>Chikungunya virus</td>
+                  <td>Flaviviridae</td>
+                  <td>Methanol extract</td>
+                  <td>Withaferin A</td>
+                  <td>Kim et al.</td>
+                </tr>
+                <tr>
+                  <td>Rheum palmatum</td>
+                  <td>Polygonaceae</td>
+                  <td>Varicella-zoster virus</td>
+                  <td>Herpesviridae</td>
+                  <td>Ethanol extract</td>
+                  <td>Emodin</td>
+                  <td>Park et al.</td>
+                </tr>
+                <tr>
+                  <td>Ginkgo biloba</td>
+                  <td>Ginkgoaceae</td>
+                  <td>Hepatitis C virus</td>
+                  <td>Flaviviridae</td>
+                  <td>Methanol extract</td>
+                  <td>Ginkgetin</td>
+                  <td>Chen et al.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        
-        <div class="family-item">
-          <h4>Fabaceae</h4>
-          <ul>
-            <li>Glycyrrhiza glabra</li>
-            <li>Acacia nilotica</li>
-            <li>Trigonella foenum-graecum</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Zingiberaceae</h4>
-          <ul>
-            <li>Curcuma longa</li>
-            <li>Zingiber officinale</li>
-            <li>Alpinia galanga</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Meliaceae</h4>
-          <ul>
-            <li>Azadirachta indica</li>
-            <li>Melia azedarach</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Amaryllidaceae</h4>
-          <ul>
-            <li>Allium sativum</li>
-            <li>Allium cepa</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Acanthaceae</h4>
-          <ul>
-            <li>Andrographis paniculata</li>
-            <li>Justicia adhatoda</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Polygonaceae</h4>
-          <ul>
-            <li>Rheum palmatum</li>
-            <li>Polygonum cuspidatum</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Solanaceae</h4>
-          <ul>
-            <li>Withania somnifera</li>
-            <li>Solanum nigrum</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Theaceae</h4>
-          <ul>
-            <li>Camellia sinensis</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Asphodelaceae</h4>
-          <ul>
-            <li>Aloe vera</li>
-            <li>Aloe barbadensis</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Myrtaceae</h4>
-          <ul>
-            <li>Eucalyptus globulus</li>
-            <li>Syzygium aromaticum</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Phyllanthaceae</h4>
-          <ul>
-            <li>Phyllanthus niruri</li>
-            <li>Phyllanthus amarus</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Combretaceae</h4>
-          <ul>
-            <li>Terminalia chebula</li>
-            <li>Terminalia bellirica</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Hypericaceae</h4>
-          <ul>
-            <li>Hypericum perforatum</li>
-          </ul>
-        </div>
-        
-        <div class="family-item">
-          <h4>Ginkgoaceae</h4>
-          <ul>
-            <li>Ginkgo biloba</li>
-          </ul>
+
+        <div class="last-revised">
+          Last revised February 4, 2026. ↑
         </div>
       </div>
-      
-      <div style="margin-top: 30px; padding: 20px; background: #f0f8f0; border-radius: 8px;">
-        <h3>Plant Classification</h3>
-        <ul style="list-style-type: none; padding-left: 0;">
-          <li style="margin: 10px 0;"><strong>Plant groups:</strong> Angiosperms, Gymnosperms, Thallophyta</li>
-          <li style="margin: 10px 0;"><strong>Major families:</strong> Asteraceae, Lamiaceae, Fabaceae, Zingiberaceae, Meliaceae, Amaryllidaceae, Acanthaceae, Polygonaceae, Solanaceae, and many more</li>
-        </ul>
+
+      <div class="right-scan-column">
+        Right scan column (optional)
       </div>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer>
-    <p>© 2026 AntiVir Database | Created by Puja Mishra | For academic and research use</p>
-  </footer>
+  <div class="footer">
+    <div class="footer-content">
+      <p><strong>AntiVir Database</strong>, Suite 300, Research Center, CT 06510-7003 USA</p>
+      <p>Copyright © 2026, AntiVir Database. All rights reserved.</p>
+      <p>Tel: 203.000.0000</p>
+      <p><a href="#">Contact us about this site.</a></p>
+    </div>
+  </div>
 
   <script>
-    function searchTable() {
-      const input = document.getElementById('searchInput').value.toLowerCase();
-      const rows = document.querySelectorAll('#tableBody tr');
-      const noResults = document.getElementById('noResults');
-      let visibleCount = 0;
+    function showSection(sectionId) {
+      // Hide all sections
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
 
-      for (let i = 0; i < rows.length; i++) {
-        const rowText = rows[i].innerText.toLowerCase();
-        if (rowText.includes(input)) {
-          rows[i].style.display = '';
-          visibleCount++;
-        } else {
-          rows[i].style.display = 'none';
-        }
-      }
+      // Show selected section
+      document.getElementById(sectionId).classList.add('active');
 
-      if (visibleCount === 0 && input !== '') {
-        noResults.style.display = 'block';
-      } else {
-        noResults.style.display = 'none';
-      }
+      // Update active tab
+      const tabs = document.querySelectorAll('.nav-tab');
+      tabs.forEach(tab => {
+        tab.classList.remove('active');
+      });
+      event.target.classList.add('active');
     }
 
-    // Update statistics dynamically
+    function searchTable() {
+      const input = document.getElementById('searchInput')?.value.toLowerCase() || 
+                    document.getElementById('browseSearchInput')?.value.toLowerCase() || '';
+      const rows = document.querySelectorAll('#tableBody tr');
+      const plantCards = document.querySelectorAll('.plant-card');
+
+      // Search in table
+      rows.forEach(row => {
+        const rowText = row.innerText.toLowerCase();
+        row.style.display = rowText.includes(input) ? '' : 'none';
+      });
+
+      // Search in plant cards
+      plantCards.forEach(card => {
+        const cardText = card.innerText.toLowerCase();
+        card.style.display = cardText.includes(input) ? '' : 'none';
+      });
+    }
+
+    // Update statistics on page load
     window.addEventListener('DOMContentLoaded', function() {
       const plantCount = new Set();
       const virusCount = new Set();
@@ -1072,26 +922,15 @@
       rows.forEach(row => {
         const cells = row.querySelectorAll('td');
         if (cells.length > 0) {
-          plantCount.add(cells[1].textContent.trim());
-          virusCount.add(cells[6].textContent.trim());
+          plantCount.add(cells[0].textContent.trim());
+          virusCount.add(cells[2].textContent.trim());
         }
       });
 
       document.getElementById('plantCount').textContent = plantCount.size;
       document.getElementById('virusCount').textContent = virusCount.size;
-
-      // Make plant items clickable to search database
-      const plantItems = document.querySelectorAll('.plant-item');
-      plantItems.forEach(item => {
-        item.style.cursor = 'pointer';
-        item.addEventListener('click', function() {
-          const plantName = this.querySelector('strong').textContent;
-          document.getElementById('searchInput').value = plantName;
-          searchTable();
-          // Scroll to database section
-          document.getElementById('database').scrollIntoView({ behavior: 'smooth' });
-        });
-      });
+      document.getElementById('statPlantCount').textContent = plantCount.size;
+      document.getElementById('statVirusCount').textContent = virusCount.size;
     });
   </script>
 
